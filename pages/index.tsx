@@ -20,6 +20,10 @@ export default function Home(props: HomeProps) {
     console.log(props);
     return (
         <div className={styles.page + " page"}>
+            <section className={styles.cover}>
+
+
+
             <div className={styles.imageContainer}>
                 <picture className={styles.image}>
                     <img src="/assets/img/profile-pic.png" />
@@ -37,6 +41,7 @@ export default function Home(props: HomeProps) {
                 <br />
                 {"}"}
             </h1>
+                </section>
         </div>
     );
 }

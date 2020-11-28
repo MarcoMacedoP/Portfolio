@@ -26,6 +26,14 @@ html {
     font-weight: bold;
     color: var(--color-black);
 }
-.headline.white{
+.headline.white {
     color: var(--color-white);
+}
+
+.button {
+    display: block;
+    padding: 8px 12px;
+    background-color: var(--color-primary);
+    border: 1px solid var(--color-white);
+    border-radius: 8px;
 }

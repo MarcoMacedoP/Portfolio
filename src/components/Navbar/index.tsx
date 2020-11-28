@@ -17,7 +17,7 @@ export default function Navbar(props: NavbarProps) {
                     <a>About me</a>
                 </li>
                     <li className={`${styles.cvButton} button`}>
-                    <a>About me</a>
+                    <a>Download CV</a>
                 </li>
             </ul>
         </nav>
