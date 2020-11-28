@@ -32,9 +32,17 @@
     }
     .list li {
         margin: 0 12px;
-
     }
     .cvButton {
-    display: block;
+        display: block;
+    }
+}
+@media screen and (min-width: 900px) {
+    .list li {
+        font-size: 16px;
+        color: var(--color-black);
+    }
+    .cvButton.li {
+        color: var(--color-white);
     }
 }
