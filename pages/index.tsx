@@ -21,27 +21,24 @@ export default function Home(props: HomeProps) {
     return (
         <div className={styles.page + " page"}>
             <section className={styles.cover}>
-
-
-
-            <div className={styles.imageContainer}>
-                <picture className={styles.image}>
-                    <img src="/assets/img/profile-pic.png" />
-                </picture>
-            </div>
-            <h1 className={styles.title}>
-                {"{"}
-                <br />
-                <strong>
-                    name: <span>"Marco Macedo"</span>,
-                </strong>
-                <strong>
-                    role: <span>"Frontend developer"</span>,
-                </strong> 
-                <br />
-                {"}"}
-            </h1>
-                </section>
+                <div className={styles.imageContainer}>
+                    <picture className={styles.image}>
+                        <img src="/assets/img/profile-pic.png" />
+                    </picture>
+                </div>
+                <h1 className={styles.title}>
+                    {"{"}
+                    <br />
+                    <strong>
+                        name: <span>"Marco Macedo"</span>,
+                    </strong>
+                    <strong>
+                        role: <span>"Frontend developer"</span>,
+                    </strong>
+                    <br />
+                    {"}"}
+                </h1>
+            </section>
         </div>
     );
 }
