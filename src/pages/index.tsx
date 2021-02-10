@@ -5,6 +5,7 @@ import * as contentful from "contentful";
 import styles from "./index.module.scss";
 
 import { Project, getAllProjects } from "../repositories/projects";
+import ProjectMiniature from "../components/ProjectMiniature";
 
 type HomeProps = { projects: Project[]; status: "success" | "error" };
 
@@ -31,10 +32,21 @@ export default function Home(props: HomeProps) {
                     {"}"}
                 </h1>
             </section>
-            <section>
-                {props.projects.map((project) => (
-                    <article> {project.title} </article>
-                ))}
+            <section className={styles.projects}>
+                <h2 className="headline">
+                    frontend/
+                    <span className="color-primary-ligth">portfolio/</span>
+                </h2>
+                <div className={styles.projectsList}>
+                    {props.projects.map((project, index) => (
+                        <ProjectMiniature
+                            title={project.title}
+                            desc={project.miniature.text}
+                            imageUrl={project.miniature.url}
+                            theme={index % 2 ? "primary" : "primary-ligth"}
+                        />
+                    ))}
+                </div>
             </section>
         </div>
     );

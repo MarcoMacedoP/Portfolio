@@ -6,7 +6,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    z-index: -1;
+    z-index: 0;
     width: 100%;
     height: 100%;
     background-color: var(--color-primary);
@@ -17,8 +17,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
-    overflow: hidden;
+    height: calc(100vh - var(--navbar-height));
+    position: relative;
 }
 .imageContainer {
     --size: 80vw;
@@ -47,10 +47,9 @@
 }
 
 .title {
+    composes: code from global;
     display: flex;
     flex-direction: column;
-    font-size: 16px;
-    font-weight: bold;
 }
 .title strong {
     padding-left: 2em;
@@ -58,6 +57,18 @@
 }
 .title span {
     color: var(--color-white);
+}
+.projects {
+    padding-top: var(--page-spacing-y);
+}
+.projects h2 {
+    margin-bottom: 2rem;
+}
+.projectsList {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 2.5rem 0;
 }
 
 @media screen and (min-width: 700px) {
@@ -87,5 +98,8 @@
     }
     .title span {
         color: var(--color-primary);
+    }
+    .projects h2 {
+        margin-bottom: 3rem;
     }
 }

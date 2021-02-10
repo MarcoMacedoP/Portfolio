@@ -1,18 +1,24 @@
 @import "./reset.scss";
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&family=Roboto+Mono:wght@400;500;700&display=swap");
 
 html {
+    --color-primary-dark: #2c224e;
     --color-primary: #754ef9;
     --color-primary-ligth: #cdbeff;
-    --color-white: #f1effa;
+    --color-white-dark: #f1effa;
+    --color-white: #f8f7fc;
     --color-black: #0e091e;
-    --page-spacing-x: 1rem;
-    --page-spacing-y: 5rem;
+    --page-spacing-x: 1.33rem;
+    --page-spacing-y: 2rem;
+    --navbar-height: 5rem;
 
-    background-color: var(--color-white);
+    --font-primary: "Roboto Mono", monospace;
+    --font-secondary: "Open Sans", sans-serif;
+
+    background-color: var(--color-white-dark);
     color: var(--color-black);
-    font-size: 16px;
-    font-family: "Roboto Mono", monospace;
+    font-size: 12px;
+    font-family: var(--font-secondary);
 }
 
 body {
@@ -20,18 +26,35 @@ body {
 }
 
 .page {
-    padding: 0 var(--page-spacing-x);
+    padding: 0 var(--page-spacing-x) var(--page-spacing-y);
     min-height: 100vh;
     box-sizing: border-box;
 }
 
 .headline {
-    font-size: 32px;
+    font-family: var(--font-primary);
+    font-size: 2rem;
     font-weight: bold;
     color: var(--color-black);
 }
-.headline.white {
+.title {
+    font-size: 2rem;
+    font-weight: 800;
+    font-family: var(--font-secondary);
+}
+.code {
+    font-size: 1.5rem;
+    font-family: var(--font-primary);
+    font-weight: bold;
+}
+.color-white {
     color: var(--color-white);
+}
+.color-primary {
+    color: var(--color-primary);
+}
+.color-primary-ligth {
+    color: var(--color-primary-ligth);
 }
 
 .button {
@@ -45,6 +68,24 @@ body {
 
 @media screen and (min-width: 700px) {
     html {
+        font-size: 14px;
         --page-spacing-x: 2rem;
+        --page-spacing-y: 3rem;
     }
 }
+@media screen and (min-width: 900px) {
+    html {
+        font-size: 16px;
+        --page-spacing-y: 5rem;
+    }
+}
+
+/**
+@media screen and (min-width: 700px) {
+
+}
+@media screen and (min-width: 900px) {
+
+}
+
+**/

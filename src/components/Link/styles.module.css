@@ -1,21 +1,33 @@
+.dark {
+    --color-regular: var(--color-primary-ligth);
+    --color-hovered: var(--color-white);
+}
+.ligth {
+    --color-regular: var(--color-primary-ligth);
+    --color-hovered: var(--color-primary);
+}
+
 .link {
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    font-weight: bold;
+
     text-decoration: none;
     padding-bottom: 0.25rem;
 
-    border-bottom: 0.5rem solid var(--color-primary-ligth);
-    color: var(--color-primary-ligth);
+    border-bottom: 0.5rem solid var(--color-regular);
+    color: var(--color-regular);
     margin: 0;
-    opacity: 0.75;
 
-    transition-property: border-bottom, color, margin, opacity;
+    transition-property: border-bottom, color, margin;
     transition-timing-function: linear;
     transition-duration: 300ms;
     transition-delay: 100ms;
 }
+
 .link:hover,
 .link:active {
-    opacity: 1;
-    border-bottom: 0.5rem solid var(--color-white);
-    color: var(--color-white);
+    border-bottom: 0.5rem solid var(--color-hovered);
+    color: var(--color-hovered);
     margin: 0 1rem;
 }

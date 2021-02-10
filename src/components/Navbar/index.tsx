@@ -15,7 +15,7 @@ export default function Navbar(props: NavbarProps) {
     return (
         <nav className={styles.container}>
             <strong className="headline">
-                marco<span className="headline white">.macedo;</span>
+                marco<span className="headline color-white">.macedo;</span>
             </strong>
             <Menu routes={routes} />
         </nav>

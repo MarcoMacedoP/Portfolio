@@ -1,0 +1,51 @@
+.container {
+    border-radius: 1rem;
+    background-color: var(--color-white);
+    overflow: hidden;
+    box-shadow: 5px 4px 9px 4px rgba(0, 0, 0, 0.1);
+}
+.projectInformation {
+    padding: 1.5rem 2rem;
+}
+.title {
+    composes: title from global;
+    margin-bottom: 1rem;
+    color: var(--color);
+}
+.desc {
+    margin-bottom: 2rem;
+}
+.link {
+    margin-bottom: 1rem;
+}
+
+.picture {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+
+    background-color: var(--color);
+}
+
+@media screen and (min-width: 700px) {
+}
+
+@media screen and (min-width: 900px) {
+    .container {
+        display: flex;
+        justify-content: space-between;
+    }
+    .desc {
+        flex: 1;
+    }
+    .projectInformation {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .picture {
+        width: 50%;
+        height: 40vh;
+    }
+}
