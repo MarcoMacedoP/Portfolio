@@ -3,46 +3,230 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    position: fixed;
+    position: sticky;
     top: 0;
     padding: 0 var(--page-spacing-x);
     height: var(--page-spacing-y);
+    background-color: var(--color-primary);
     box-sizing: border-box;
 }
-.list {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    margin-left: 8px;
+
+.listContainer {
+    display: none;
 }
+
 .list li {
-    margin-top: 8px;
-    color: var(--color-white);
-    font-size: 12px;
+    opacity: 0;
 }
+
+.closeList {
+    font-weight: bold;
+    color: var(--color-white);
+    font-size: 2rem;
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+}
+
+.listShowed {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    --listShowedWidth: 70vw;
+    --listItemHeight: 3rem;
+}
+@keyframes listOpened {
+    from {
+        width: 0;
+    }
+    to {
+        width: var(--listShowedWidth);
+    }
+}
+.listShowed .list {
+    animation: listOpened var(--animationDuration);
+    padding: 4rem 2rem 3rem;
+    width: var(--listShowedWidth);
+    height: 100vh;
+    box-sizing: border-box;
+    z-index: 2;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--color-primary);
+}
+
+@keyframes listItemOpened {
+    from {
+        height: 0;
+        opacity: 0;
+    }
+    to {
+        height: var(--listItemHeight);
+        opacity: 1;
+    }
+}
+
+.listShowed .list li {
+    animation: listItemOpened var(--animationDuration);
+    animation-delay: var(--animationDuration);
+    animation-fill-mode: forwards;
+    overflow: hidden;
+}
+
+@keyframes listBackgroundOpened {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+    40% {
+        width: 50%;
+        opacity: 0.5;
+    }
+    100% {
+        width: 100%;
+        opacity: 1;
+    }
+}
+.listShowed .listBackground {
+    animation: listBackgroundOpened var(--animationDuration);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+@keyframes listClosed {
+    from {
+        width: var(--listShowedWidth);
+    }
+    to {
+        width: 0%;
+        padding: 0;
+    }
+}
+.listClosed .list {
+    animation: listClosed var(--animationDuration);
+    animation-fill-mode: forwards;
+    animation-delay: var(--animationDuration);
+}
+@keyframes listItemClosed {
+    from {
+        height: var(--listItemHeight);
+        opacity: 1;
+    }
+
+    to {
+        height: 0;
+        opacity: 0;
+    }
+}
+.listClosed .list li {
+    animation: listItemClosed var(--animationDuration);
+    animation-fill-mode: forwards;
+}
+
+@keyframes listBackgroundClosed {
+    0% {
+        width: 100%;
+        opacity: 1;
+    }
+    40% {
+        width: 50%;
+        opacity: 0.5;
+    }
+    100% {
+        width: 0;
+        opacity: 0;
+    }
+}
+.listClosed .listBackground {
+    animation: listBackgroundClosed var(--animationDuration);
+    animation-fill-mode: forwards;
+    animation-delay: var(--animationDuration);
+}
+.icon {
+    cursor: pointer;
+    padding: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.iconClicked {
+    position: relative;
+}
+@keyframes click {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.iconClicked::after {
+    content: "";
+
+    animation: click 400ms;
+    animation-fill-mode: forwards;
+
+    position: absolute;
+    top: 0;
+    z-index: -1;
+
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.link {
+    margin-bottom: 1.5rem;
+}
+
 .cvButton {
     display: none;
 }
 
 @media screen and (min-width: 700px) {
-    .list {
-        flex-direction: row;
-        justify-content: flex-end;
-        align-items: center;
-    }
-    .list li {
-        margin: 0 12px;
-    }
     .cvButton {
         display: block;
     }
 }
 @media screen and (min-width: 900px) {
-    .list li {
-        font-size: 16px;
-        color: var(--color-black);
+    .menuButton {
+        display: none;
     }
+    .listContainer {
+        display: block;
+    }
+    .list {
+        display: flex;
+        align-items: center;
+    }
+    .list li {
+        opacity: 1;
+        margin: 0;
+    }
+
     .cvButton.li {
         color: var(--color-white);
+        margin: 0;
+    }
+    .link {
+        margin: 0 2rem 1rem 0;
     }
 }

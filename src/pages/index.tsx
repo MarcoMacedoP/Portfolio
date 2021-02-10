@@ -4,22 +4,14 @@ import { GetStaticProps } from "next";
 import * as contentful from "contentful";
 import styles from "./index.module.scss";
 
-type Project = {
-    fields: {
-        description: { content: { content: [{ value: string }] }[] };
-        miniature: {
-            fields: { title: string; file: { url: string; fileName: string } };
-        };
-        title: string;
-    };
-};
+import { Project, getAllProjects } from "../repositories/projects";
 
-type HomeProps = { projects: Project[] };
+type HomeProps = { projects: Project[]; status: "success" | "error" };
 
 export default function Home(props: HomeProps) {
     console.log(props);
     return (
-        <div className={styles.page + " page"}>
+        <div className={styles.page}>
             <section className={styles.cover}>
                 <div className={styles.imageContainer}>
                     <picture className={styles.image}>
@@ -39,20 +31,21 @@ export default function Home(props: HomeProps) {
                     {"}"}
                 </h1>
             </section>
+            <section>
+                {props.projects.map((project) => (
+                    <article> {project.title} </article>
+                ))}
+            </section>
         </div>
     );
 }
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-    const client = contentful.createClient({
-        space: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_KEY,
-    });
     try {
-        const entries = await client.getEntries();
-        return { props: { projects: entries.items as Project[] } };
+        const { status, payload } = await getAllProjects();
+        return { props: { projects: payload?.projects || [], status } };
     } catch (error) {
         console.log(error);
-        return { props: { projects: [] } };
+        return { props: { projects: [], status: "error" } };
     }
 };

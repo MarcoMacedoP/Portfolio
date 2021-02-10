@@ -1,4 +1,14 @@
 .page {
+    composes: page from global;
+}
+.page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
     background-color: var(--color-primary);
 }
 
@@ -7,6 +17,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100vh;
+    overflow: hidden;
 }
 .imageContainer {
     --size: 80vw;
@@ -58,24 +70,13 @@
 }
 
 @media screen and (min-width: 900px) {
-    .page {
-        background-color: transparent;
-        position: relative;
-    }
     .page::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        width: 40vw;
-        height: 100vh;
-        background-color: var(--color-primary);
+        width: 40%;
     }
+
     .cover {
         flex-direction: row;
         align-items: center;
-        height: calc(99vh - var(--page-spacing-y));
     }
     .imageContainer {
         --size: 40vw;

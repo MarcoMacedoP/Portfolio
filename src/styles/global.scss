@@ -15,8 +15,12 @@ html {
     font-family: "Roboto Mono", monospace;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 .page {
-    padding: calc(var(--page-spacing-y) + 1rem) var(--page-spacing-x);
+    padding: 0 var(--page-spacing-x);
     min-height: 100vh;
     box-sizing: border-box;
 }

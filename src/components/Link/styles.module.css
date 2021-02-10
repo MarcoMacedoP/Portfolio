@@ -1,0 +1,21 @@
+.link {
+    text-decoration: none;
+    padding-bottom: 0.25rem;
+
+    border-bottom: 0.5rem solid var(--color-primary-ligth);
+    color: var(--color-primary-ligth);
+    margin: 0;
+    opacity: 0.75;
+
+    transition-property: border-bottom, color, margin, opacity;
+    transition-timing-function: linear;
+    transition-duration: 300ms;
+    transition-delay: 100ms;
+}
+.link:hover,
+.link:active {
+    opacity: 1;
+    border-bottom: 0.5rem solid var(--color-white);
+    color: var(--color-white);
+    margin: 0 1rem;
+}
