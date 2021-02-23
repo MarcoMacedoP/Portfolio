@@ -6,6 +6,7 @@ import styles from "./index.module.scss";
 
 import { Project, getAllProjects } from "../repositories/projects";
 import ProjectMiniature from "../components/ProjectMiniature";
+import ProjectsList from "../components/ProjectsList";
 
 type HomeProps = { projects: Project[]; status: "success" | "error" };
 
@@ -37,15 +38,12 @@ export default function Home(props: HomeProps) {
                     frontend/
                     <span className="color-primary-ligth">portfolio/</span>
                 </h2>
-                <div className={styles.projectsList}>
-                    {props.projects.map((project, index) => (
-                        <ProjectMiniature
-                            key={project.slug}
-                            project={project}
-                            theme={index % 2 ? "primary" : "primary-ligth"}
-                        />
-                    ))}
-                </div>
+                <ProjectsList
+                    projects={props.projects}
+                    setProjectTheme={(_, index) =>
+                        index % 2 ? "primary" : "primary-ligth"
+                    }
+                />
             </section>
         </div>
     );

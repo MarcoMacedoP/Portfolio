@@ -9,7 +9,7 @@ type NavbarProps = {};
 type Route = { url: string; name: string };
 
 const routes: Route[] = [
-    { url: "#portfolio", name: "Portfolio" },
+    { url: "/portfolio", name: "Portfolio" },
     { url: "#about", name: "About" },
     { url: "#cv", name: "Download CV" },
 ];
@@ -61,6 +61,14 @@ const Menu = (props: MenuProps) => {
         }, animationDuration * 2);
     };
 
+    const onRouteClick = ()=> {
+        const isMenuOpen = routes.current.classList.contains(styles.listShowed)
+        if(isMenuOpen){
+            onMenuClose();
+        }
+
+    }
+
     return (
         <section
             style={
@@ -106,7 +114,7 @@ const Menu = (props: MenuProps) => {
                     </li>
                     {props.routes.map((route) => (
                         <li key={route.url}>
-                            <Link href={route.url} className={styles.link}>
+                            <Link href={route.url} className={styles.link} onClick={onRouteClick}>
                                 {route.name}
                             </Link>
                         </li>

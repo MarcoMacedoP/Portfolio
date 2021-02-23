@@ -72,12 +72,6 @@
 .projects h2 {
     margin-bottom: var(--page-spacing-y);
 }
-.projectsList {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    gap: var(--page-spacing-y) 0;
-}
 
 @media screen and (min-width: 700px) {
     .imageContainer {

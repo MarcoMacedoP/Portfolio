@@ -40,6 +40,7 @@ export default function ProjectMiniature(props: ProjectMiniatureProps) {
                     </div>
                 </div>
                 <Link
+                    onClick={(event) => event.stopPropagation()}
                     href={"/projects/" + project.slug}
                     className={styles.link}
                     colorRegular={color}
