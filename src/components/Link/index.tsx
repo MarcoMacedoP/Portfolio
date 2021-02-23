@@ -7,6 +7,8 @@ type LinkProps = {
     className?: string;
     colorRegular?: string;
     colorHovered?: string;
+    onClick? : (event:React.MouseEvent<HTMLAnchorElement> )=> void;
+                    
 };
 
 export default function Link({
@@ -15,6 +17,7 @@ export default function Link({
     className,
     colorHovered = "var(--color-white)",
     colorRegular = "var(--color-primary-ligth)",
+    onClick
 }: LinkProps) {
     return (
         <div
@@ -27,7 +30,7 @@ export default function Link({
             }
         >
             <NextLink href={href}>
-                <a className={styles.link}>{children}</a>
+                <a className={styles.link} onClick={onClick}>{children}</a>
             </NextLink>
         </div>
     );

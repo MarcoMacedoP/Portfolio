@@ -1,4 +1,6 @@
-import React, { useRef } from "react";
+import React, { useEffect, useLayoutEffect, useRef } from "react";
+import NextLink from "next/link";
+import { useScroll } from "react-reusable-hooks";
 import styles from "./styles.module.scss";
 import Link from "../Link";
 
@@ -9,14 +11,33 @@ type Route = { url: string; name: string };
 const routes: Route[] = [
     { url: "#portfolio", name: "Portfolio" },
     { url: "#about", name: "About" },
+    { url: "#cv", name: "Download CV" },
 ];
 
 export default function Navbar(props: NavbarProps) {
+    const navbar = useRef<HTMLElement>();
+    const scrolledClass = styles.containerScrolled;
+
+    useScroll((position) => {
+        const element = navbar.current;
+        const maxScrollY = 200;
+        if (position.y > maxScrollY) {
+            element.classList.add(scrolledClass);
+        } else {
+            element.classList.remove(scrolledClass);
+        }
+    });
+
     return (
-        <nav className={styles.container}>
-            <strong className="headline">
-                marco<span className="headline color-white">.macedo;</span>
-            </strong>
+        <nav className={styles.container} ref={navbar}>
+            <NextLink href="/">
+                <a>
+                    <strong className="headline">
+                        marco
+                        <span className="headline color-white">.macedo;</span>
+                    </strong>
+                </a>
+            </NextLink>
             <Menu routes={routes} />
         </nav>
     );
@@ -90,9 +111,6 @@ const Menu = (props: MenuProps) => {
                             </Link>
                         </li>
                     ))}
-                    <li className={`${styles.cvButton} button`}>
-                        <a>Download CV</a>
-                    </li>
                 </ul>
                 <div className={styles.listBackground} onClick={onMenuClose} />
             </section>

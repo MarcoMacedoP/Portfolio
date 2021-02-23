@@ -3,6 +3,7 @@
     background-color: var(--color-white);
     overflow: hidden;
     box-shadow: 5px 4px 9px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 .projectInformation {
     padding: 1.5rem 2rem;
@@ -23,11 +24,46 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 30vh;
+    height: 100%;
 
     background-color: var(--color);
 }
+.picture img {
+    width: 80%;
+    object-fit: contain;
+}
 
+/*
+ * Expanded mode styles
+ * **/
+.moreDetails {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    transition: height ease-in 400ms;
+}
+
+.expandedContainer .moreDetails {
+    height: 30vh;
+}
+
+.technologies {
+    margin: 2rem 0 4rem;
+}
+
+.subtitle {
+    composes: subtitle from global;
+    color: var(--color);
+    margin-bottom: 1rem;
+}
+
+.technologiesList {
+    composes: list from global;
+}
+
+/*
+ * Media querys 
+ */
 @media screen and (min-width: 700px) {
 }
 
@@ -36,16 +72,22 @@
         display: flex;
         justify-content: space-between;
     }
-    .desc {
-        flex: 1;
+    .desc, .moreDetails{
+        width: 80%;
     }
     .projectInformation {
         display: flex;
         flex-direction: column;
+        box-sizing: border-box;
+        width: 50%;
     }
 
     .picture {
         width: 50%;
-        height: 40vh;
+        padding: 2rem;
+        box-sizing: border-box;
+    }
+    .picture img {
+        width: 70%;
     }
 }

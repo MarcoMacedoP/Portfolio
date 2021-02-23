@@ -1,0 +1,48 @@
+[
+    {
+        "relevance": "important",
+        "slug": "sicar",
+        "title": "SiCar Farms",
+        "productionUrl": "https://i.ibb.co/0CwGXyW/Captura-de-Pantalla-2021-02-15-a-la-s-16-44-13.png",
+        "miniature": {
+            "url": "https://i.imgur.com/WROPhZY.png",
+            "text": "This is a responsive website for a farm based company. It has support for many languages and is works with a mix of static generation and server side rendering"
+        },
+        "description": "Sicar Farms is a mexican company dedicated to the farming industry. With a minimalistic UI, this page is delivered in to their clients in LATAM and around the world. It was made with the power of React.js and Next.js, using this techologies whe can achvive a good user experiencie along the navigation and a fast perfomance.",
+        "technologies": [
+            { "name": "Typescript" },
+            { "name": "React" },
+            { "name": "Next" }
+        ]
+    },
+    {
+        "relevance": "important",
+        "slug": "xoy",
+        "title": "XoyCoin Wallet",
+        "miniature": {
+            "url": "https://i.ibb.co/H4xc2Fy/xoycoin-min.png",
+            "text": "This  a wallet for sending, and store Ethereum (ETH) and XoyCoin tokens (XOY)."
+        },
+        "description": "This app was made with the power of React Native, wich allows us to have the best user experience in both IOS and Android devices.",
+        "technologies": [
+            { "name": "Typescript" },
+            { "name": "React" },
+            { "name": "React Native" }
+        ]
+    },
+    {
+        "relevance": "normal",
+        "slug": "bubo",
+        "title": "Crypto landing page",
+        "miniature": {
+            "url": "https://i.ibb.co/LQKQDLZ/Captura-de-Pantalla-2021-02-22-a-la-s-14-05-23.png",
+            "text": "This is a responsive landing page for a crypto token based on Binance network."
+        },
+        "description": "In this landing page you can know more about the BUBO token, how it works, their price and the technical details.",
+        "technologies": [
+            { "name": "HTML" },
+            { "name": "TailwindCSS" },
+            { "name": "Parcel" }
+        ]
+    }
+]

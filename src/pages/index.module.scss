@@ -1,53 +1,61 @@
 .page {
     composes: page from global;
-}
-.page::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--color-primary);
+    position: relative;
 }
 
 .cover {
-    width: 100%;
+    composes: first-page-section from global;
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: calc(100vh - var(--navbar-height));
-    position: relative;
 }
+.cover::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    z-index: -1;
+
+    width: 100vw;
+    height: 100%;
+
+    background-color: var(--color-primary);
+}
+
 .imageContainer {
     --size: 80vw;
     width: var(--size);
     height: var(--size);
-    border-radius: 50%;
-    background-color: var(--color-white);
     border: solid var(--color-primary) 1.5rem;
+    border-radius: 50%;
+    margin-bottom: calc(var(--page-spacing-y) * 2);
+
+    background-color: var(--color-white);
+
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 2rem;
 }
 .image {
     width: 80%;
     border-radius: 50%;
     padding: 1rem;
-    background-color: var(--color-primary);
     overflow: hidden;
+
+    background-color: var(--color-primary);
 }
 .image img {
     width: 100%;
     height: 100%;
+
     object-position: center;
     object-fit: cover;
 }
 
 .title {
     composes: code from global;
+    white-space: nowrap;
     display: flex;
     flex-direction: column;
 }
@@ -59,16 +67,16 @@
     color: var(--color-white);
 }
 .projects {
-    padding-top: var(--page-spacing-y);
+    composes: page-section from global;
 }
 .projects h2 {
-    margin-bottom: 2rem;
+    margin-bottom: var(--page-spacing-y);
 }
 .projectsList {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    gap: 2.5rem 0;
+    gap: var(--page-spacing-y) 0;
 }
 
 @media screen and (min-width: 700px) {
@@ -81,8 +89,12 @@
 }
 
 @media screen and (min-width: 900px) {
-    .page::before {
+    .cover::before {
         width: 40%;
+        height: 100vh;
+        left: calc(var(--page-spacing-x) * -1);
+        top: calc(var(--navbar-height) * -1);
+        border-radius: 0 0 100% 0;
     }
 
     .cover {
@@ -90,8 +102,8 @@
         align-items: center;
     }
     .imageContainer {
-        --size: 40vw;
-        margin-right: 2rem;
+        --size: 30vw;
+        margin: 0 2rem 0 0;
     }
     .title {
         font-size: 32px;

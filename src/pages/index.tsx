@@ -40,9 +40,8 @@ export default function Home(props: HomeProps) {
                 <div className={styles.projectsList}>
                     {props.projects.map((project, index) => (
                         <ProjectMiniature
-                            title={project.title}
-                            desc={project.miniature.text}
-                            imageUrl={project.miniature.url}
+                            key={project.slug}
+                            project={project}
                             theme={index % 2 ? "primary" : "primary-ligth"}
                         />
                     ))}

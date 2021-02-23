@@ -3,32 +3,22 @@ interface RepositorieResponse<P = null> {
     payload?: P;
 }
 export interface Project {
+    slug: string;
+    relevance: "important" | "normal";
     title: string;
     description: string;
     miniature: { url: string; text: string };
+    technologies: { name: string }[];
+    productionUrl?: string;
 }
 
-export function getAllProjects(): Promise<
+export async function getAllProjects(): Promise<
     RepositorieResponse<{ projects: Project[] }>
 > {
-    return new Promise((resolve, reject) => {
-        const projects: Project[] = [
-            {
-                title: "SiCar Farms",
-                miniature: { url: "", text: "Frontend project " },
-                description:
-                    "SICAR FARMS es una empresa mexicana dedicada a la industria agricola. Este proyecto consta de una aplicacion web creada con React, utilizando Next.js que permite combinar Server Side Rendering y  Static File Generation.",
-            },
-            {
-                title: "SiCar Farms",
-                miniature: { url: "", text: "Frontend project " },
-                description:
-                    "SICAR FARMS es una empresa mexicana dedicada a la industria agricola. Este proyecto consta de una aplicacion web creada con React, utilizando Next.js que permite combinar Server Side Rendering y  Static File Generation.",
-            },
-        ];
-        resolve({
-            status: "success",
-            payload: { projects },
-        });
-    });
+    const projects = (await import("./projects.data.json")).default;
+
+    return {
+        status: "success",
+        payload: { projects : projects as Project[]},
+    };
 }
