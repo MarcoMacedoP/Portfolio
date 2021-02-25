@@ -30,7 +30,8 @@ export default function Link({
             }
         >
             <NextLink href={href}>
-                <a className={styles.link} onClick={onClick}>{children}</a>
+                <a className={styles.link} onClick={onClick}>{children} &gt;
+</a>
             </NextLink>
         </div>
     );

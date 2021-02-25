@@ -41,15 +41,14 @@ export default function ProjectMiniature(props: ProjectMiniatureProps) {
                 </div>
                 <Link
                     onClick={(event) => event.stopPropagation()}
-                    href={"/projects/" + project.slug}
+                    href={"/portfolio/" + project.slug}
                     className={styles.link}
                     colorRegular={color}
                     colorHovered={`var(--color-${
                         theme === "primary" ? "primary-ligth" : "primary"
                     })`}
                 >
-                    Know more about this project &gt;{" "}
-                </Link>
+                    Know more about this project                </Link>
             </section>
             <section className={styles.picture}>
                 <img src={project.miniature.url} alt={project.title} />
