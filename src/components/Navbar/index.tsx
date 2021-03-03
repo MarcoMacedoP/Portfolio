@@ -3,16 +3,13 @@ import NextLink from "next/link";
 import { useScroll } from "react-reusable-hooks";
 import styles from "./styles.module.scss";
 import Link from "../Link";
+import Icon from "../Icon";
 
-type NavbarProps = {};
+import { Route } from "../../repositories/routes";
 
-type Route = { url: string; name: string };
-
-const routes: Route[] = [
-    { url: "/portfolio", name: "Portfolio" },
-    { url: "#about", name: "About" },
-    { url: "#cv", name: "Download CV" },
-];
+type NavbarProps = {
+    routes: Route[];
+};
 
 export default function Navbar(props: NavbarProps) {
     const navbar = useRef<HTMLElement>();
@@ -38,7 +35,7 @@ export default function Navbar(props: NavbarProps) {
                     </strong>
                 </a>
             </NextLink>
-            <Menu routes={routes} />
+            <Menu routes={props.routes} />
         </nav>
     );
 }
@@ -61,13 +58,12 @@ const Menu = (props: MenuProps) => {
         }, animationDuration * 2);
     };
 
-    const onRouteClick = ()=> {
-        const isMenuOpen = routes.current.classList.contains(styles.listShowed)
-        if(isMenuOpen){
+    const onRouteClick = () => {
+        const isMenuOpen = routes.current.classList.contains(styles.listShowed);
+        if (isMenuOpen) {
             onMenuClose();
         }
-
-    }
+    };
 
     return (
         <section
@@ -114,7 +110,12 @@ const Menu = (props: MenuProps) => {
                     </li>
                     {props.routes.map((route) => (
                         <li key={route.url}>
-                            <Link href={route.url} className={styles.link} onClick={onRouteClick}>
+                            <Link
+                                href={route.url}
+                                className={styles.link}
+                                onClick={onRouteClick}
+                                isExternal={route.isExternal}
+                            >
                                 {route.name}
                             </Link>
                         </li>
@@ -125,36 +126,3 @@ const Menu = (props: MenuProps) => {
         </section>
     );
 };
-
-type IconProps = {
-    children: React.ReactNode;
-    animationDuration?: number;
-    onClick?: () => void;
-    className?: string;
-};
-
-function Icon({
-    children,
-    className = "",
-    animationDuration = 200,
-    onClick,
-}: IconProps) {
-    const onMenuPress = (
-        event: React.MouseEvent<HTMLDivElement, MouseEvent>
-    ) => {
-        const element = event.currentTarget;
-        element.classList.add(styles.iconClicked);
-        setTimeout(
-            () => element.classList.remove(styles.iconClicked),
-            animationDuration
-        );
-        if (onClick) {
-            onClick();
-        }
-    };
-    return (
-        <div className={`${styles.icon} ${className}`} onClick={onMenuPress}>
-            {children}
-        </div>
-    );
-}

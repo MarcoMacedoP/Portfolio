@@ -1,26 +1,35 @@
-import Navbar from '../Navbar';
+import Navbar from "../Navbar";
+import SocialIcons from "../SocialIcons";
+import styles from "./styles.module.css";
+
+import { routes } from "../../repositories/routes";
+import Link from "../Link";
 
 type LayoutProps = {
     children?: React.ReactChild;
+};
 
-}
-export default function Layout({children}: LayoutProps) {
+export default function Layout({ children }: LayoutProps) {
     return (
         <div className="container">
-            <Navbar />
+            <Navbar routes={routes} />
             <main>{children}</main>
-            <style jsx>{`
-                .container {
-                    display: flex;
-                    flex-direction: column;
-                    height: 100vh;
-                }
-                main {
-                    flex: 1;
-                    display: flex;
-                    flex-direction: column;
-                }
-            `}</style>
+            <footer className={styles.footer}>
+                <section className={styles.routes}>
+                    {routes.map((route) => (
+                        <Link
+                            href={route.url}
+                            isExternal={route.isExternal}
+                            key={route.name}
+                            className={styles.link}
+                        >
+                            {route.name}
+                        </Link>
+                    ))}
+                </section>
+                <p className="headline">marco.macedo;</p>
+                <SocialIcons />
+            </footer>
         </div>
     );
 }

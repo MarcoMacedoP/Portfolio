@@ -29,7 +29,7 @@ export default function Project(props: ProjectProps) {
 
                     {project.productionUrl && (
                         <div className={styles.link}>
-                            <Link href={project.productionUrl}>
+                            <Link href={project.productionUrl} isExternal>
                                 Watch it live!
                             </Link>
                         </div>

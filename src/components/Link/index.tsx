@@ -7,8 +7,8 @@ type LinkProps = {
     className?: string;
     colorRegular?: string;
     colorHovered?: string;
-    onClick? : (event:React.MouseEvent<HTMLAnchorElement> )=> void;
-                    
+    onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
+    isExternal?: boolean;
 };
 
 export default function Link({
@@ -17,21 +17,29 @@ export default function Link({
     className,
     colorHovered = "var(--color-white)",
     colorRegular = "var(--color-primary-ligth)",
-    onClick
+    onClick,
+    isExternal,
 }: LinkProps) {
+    const colorStyles = {
+        "--color-regular": colorRegular,
+        "--color-hovered": colorHovered,
+    } as React.CSSProperties;
+
+    if (isExternal) {
+        return (
+            <div className={className} style={colorStyles}>
+                    <a href={href} className={styles.link} onClick={onClick} target="__blank" rel="noopener">
+                        {children} &gt;
+                    </a>
+            </div>
+        );
+    }
     return (
-        <div
-            className={className}
-            style={
-                {
-                    "--color-regular": colorRegular,
-                    "--color-hovered": colorHovered,
-                } as React.CSSProperties
-            }
-        >
+        <div className={className} style={colorStyles}>
             <NextLink href={href}>
-                <a className={styles.link} onClick={onClick}>{children} &gt;
-</a>
+                <a className={styles.link} onClick={onClick}>
+                    {children} &gt;
+                </a>
             </NextLink>
         </div>
     );

@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.children {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer{
+    background-color: var(--color-primary);
+    width: 100%;
+    box-sizing: border-box;
+    padding: 3rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.footer p{
+    color: var(--color-primary-ligth);
+}
+.routes {}
+.link{
+    margin: 2rem 0;
+
+}
