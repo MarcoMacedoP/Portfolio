@@ -23,8 +23,20 @@
     background-color: var(--color-primary);
 }
 
+@keyframes image {
+    0% {
+        top: 0;
+    }
+    70% {
+        top: 3rem;
+    }
+    100% {
+        top: 0;
+    }
+}
 .imageContainer {
     --size: 80vw;
+    position: relative;
     width: var(--size);
     height: var(--size);
     border: solid var(--color-primary) 1.5rem;
@@ -36,13 +48,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    animation-name: image;
+    animation-duration: 1500ms;
+    animation-iteration-count: infinite;
 }
+
 .image {
     width: 80%;
+    height: 80%;
     border-radius: 50%;
     padding: 1rem;
     overflow: hidden;
-
     background-color: var(--color-primary);
 }
 .image img {
@@ -88,7 +105,6 @@
 }
 .about h4 {
     margin: 2rem 0 1rem;
-
 }
 
 @media screen and (min-width: 700px) {
@@ -113,9 +129,35 @@
         flex-direction: row;
         align-items: center;
     }
+    @keyframes image {
+        0% {
+            top: 5rem;
+            left: 0;
+        }
+        40% {
+            left: 1rem;
+            top: -10rem;
+        }
+
+        60%{
+            top: -13rem;
+            left: 2rem;
+        }
+        80%{
+            top: -15rem;
+            left: 4rem;
+
+        }
+        100% {
+            left: 0;
+            top: 5rem;
+        }
+    }
     .imageContainer {
         --size: 30vw;
         margin: 0 2rem 0 0;
+        animation-duration: 3500ms;
+        animation-delay: 500ms;
     }
     .title {
         font-size: 32px;
