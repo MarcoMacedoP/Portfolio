@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { Project } from "../../repositories/projects";
 import Link from "../Link";
+import Mockup from "../Mockup";
 import styles from "./styles.module.css";
 
 type ProjectMiniatureProps = {
@@ -20,7 +21,7 @@ export default function ProjectMiniature(props: ProjectMiniatureProps) {
 
     return (
         <article
-            className={styles.container}
+            className={`${styles.container} ${styles[project.miniature.type]}`}
             style={{ "--color": color } as React.CSSProperties}
             onClick={showMoreProjectDetails}
             ref={container}
@@ -48,10 +49,15 @@ export default function ProjectMiniature(props: ProjectMiniatureProps) {
                         theme === "primary" ? "primary-ligth" : "primary"
                     })`}
                 >
-                    Know more about this project                </Link>
+                    Know more about this project{" "}
+                </Link>
             </section>
             <section className={styles.picture}>
-                <img src={project.miniature.url} alt={project.title} />
+                <Mockup
+                    imageUrl={project.miniature.url}
+                    className={styles.mockup}
+                    type={project.miniature.type}
+                />
             </section>
         </article>
     );

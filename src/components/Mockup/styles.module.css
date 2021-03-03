@@ -1,0 +1,43 @@
+.container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container img {
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.mockup {
+    height: 100%;
+}
+
+.content {
+    position: absolute;
+    z-index: 0;
+    bottom: 0;
+    height: calc(100% - 1.2rem);
+}
+
+@media screen and (min-width: 900px) and (orientation: landscape) {
+    .content {
+        height: calc(100% - 1rem);
+    }
+
+}
+
+.mobile .content{
+    width: calc(100% - 2.5rem);
+    height: calc(100% - 2rem);
+    bottom: unset;
+    object-fit: contain;
+}
+.mobile .mockup {
+    object-fit: contain;
+}

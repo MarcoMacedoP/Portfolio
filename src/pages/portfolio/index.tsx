@@ -12,11 +12,22 @@ export default function Projects({ projects }: ProjectsProps) {
             <h1 className="headline color-white">software/projects</h1>
             <p className="color-white">
                 This are some of the projects I’ve worked on. Here you can find
-                i technical details about them and information about my role in
+                 technical details about them and information about my role in
                 these projects.
             </p>
             <ProjectsList projects={projects} />
             <style jsx>{`
+                .page::after{
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+
+                    width: 100%;
+                    height:100%;
+                    background: var(--color-primary);
+                    z-index: -1;
+                }
                 h1 {
                     margin-bottom: 1rem;
                 }

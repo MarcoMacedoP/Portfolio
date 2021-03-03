@@ -2,14 +2,23 @@ interface RepositorieResponse<P = null> {
     status: "success" | "error";
     payload?: P;
 }
+
 export interface Project {
     slug: string;
     relevance: "important" | "normal";
     title: string;
     description: string;
-    miniature: { url: string; text: string };
+    bannerUrl: string;
+    miniature: { url: string; text: string; type: "web" | "mobile" };
     technologies: { name: string }[];
     productionUrl?: string;
+    gallery: ProjectGallery[];
+}
+
+type ProjectGallery = {
+    type: 'mobile'|'web';
+    imageUrl: string;
+    description: string;
 }
 
 export async function getAllProjects(): Promise<
@@ -19,6 +28,6 @@ export async function getAllProjects(): Promise<
 
     return {
         status: "success",
-        payload: { projects : projects as Project[]},
+        payload: { projects: projects as Project[] },
     };
 }

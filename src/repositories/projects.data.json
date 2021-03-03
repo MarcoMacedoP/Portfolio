@@ -3,9 +3,11 @@
         "relevance": "important",
         "slug": "sicar",
         "title": "SiCar Farms",
-        "productionUrl": "https://i.ibb.co/0CwGXyW/Captura-de-Pantalla-2021-02-15-a-la-s-16-44-13.png",
+        "productionUrl": "https://sicarfarms.com/eng",
+        "bannerUrl": "/assets/img/sicar-banner.png",
         "miniature": {
-            "url": "https://i.imgur.com/WROPhZY.png",
+            "type": "web",
+            "url": "/assets/img/sicar-miniature.png",
             "text": "This is a responsive website for a farm based company. It has support for many languages and is works with a mix of static generation and server side rendering"
         },
         "description": "Sicar Farms is a mexican company dedicated to the farming industry. With a minimalistic UI, this page is delivered in to their clients in LATAM and around the world. It was made with the power of React.js and Next.js, using this techologies whe can achvive a good user experiencie along the navigation and a fast perfomance.",
@@ -13,14 +15,38 @@
             { "name": "Typescript" },
             { "name": "React" },
             { "name": "Next" }
+        ],
+        "gallery": [
+            {
+                "type": "web",
+                "imageUrl": "/assets/img/gallery/sicar-1.png",
+                "description": "In this project we deliver to the user information about the brand combining an smooth interface and a well thinked UX."
+            },
+            {
+                "type": "mobile",
+                "imageUrl": "/assets/img/gallery/sicar-2.png",
+                "description": "SICAR is a responsive website, wich allow all kind of devices to have the perfect experience  while navigating"
+            },
+            {
+                "type": "web",
+                "imageUrl": "/assets/img/gallery/sicar-3.gif",
+                "description": "In this capture we have the products page. It’s composed by a carousel of the products categories. "
+            },
+            {
+                "type": "web",
+                "imageUrl": "/assets/img/gallery/sicar-4.png",
+                "description": "This project was thought-out to deliver the best experience for hispanic users, so we have a multi lang feature to achieve this requirement. The best part about is that is completely  scalable to another languages."
+            }
         ]
     },
     {
         "relevance": "important",
         "slug": "xoy",
         "title": "XoyCoin Wallet",
+        "bannerUrl": "/assets/img/xoy-banner.png",
         "miniature": {
-            "url": "https://i.ibb.co/H4xc2Fy/xoycoin-min.png",
+            "type": "mobile",
+            "url": "/assets/img/xoy-miniature.png",
             "text": "This  a wallet for sending, and store Ethereum (ETH) and XoyCoin tokens (XOY)."
         },
         "description": "This app was made with the power of React Native, wich allows us to have the best user experience in both IOS and Android devices.",
@@ -28,14 +54,49 @@
             { "name": "Typescript" },
             { "name": "React" },
             { "name": "React Native" }
+        ],
+        "gallery": [
+            {
+                "type": "mobile",
+                "imageUrl": "/assets/img/gallery/xoy-1.png",
+                "description": "In the XoyCoin app you can create or import an existing wallet"
+            },
+            {
+                "type": "mobile",
+                "imageUrl": "/assets/img/gallery/xoy-2.png",
+                "description": "Once you have created a wallet, you can manage the balances for your multiple currencies."
+            },
+            {
+                "type": "mobile",
+                "imageUrl": "/assets/img/gallery/xoy-3.png",
+                "description": "In the currency screen, you can watch all of your past transactions and navigate to send or fund balances"
+            },
+            {
+                "type": "mobile",
+                "imageUrl": "/assets/img/gallery/xoy-4.png",
+                "description": "Here, with the QR code other users can scan it to send ETH/tokens"
+            },
+            {
+                "type": "mobile",
+                "imageUrl": "/assets/img/gallery/xoy-5.png",
+                "description": "To send a currency, you must set a quantity, you can see the value in both USD and in ETH/Tokens"
+            },
+            {
+                "type": "mobile",
+                "imageUrl": "/assets/img/gallery/xoy-6.png",
+                "description": "And you can configure all the fees to make the transaction"
+            }
         ]
     },
     {
         "relevance": "normal",
         "slug": "bubo",
         "title": "Crypto landing page",
+        "productionUrl": "https://bubo-landing.vercel.app/",
+        "bannerUrl": "/assets/img/bubo-banner.png",
         "miniature": {
-            "url": "https://i.ibb.co/LQKQDLZ/Captura-de-Pantalla-2021-02-22-a-la-s-14-05-23.png",
+            "type": "web",
+            "url": "/assets/img/bubo-miniature.png",
             "text": "This is a responsive landing page for a crypto token based on Binance network."
         },
         "description": "In this landing page you can know more about the BUBO token, how it works, their price and the technical details.",
@@ -43,6 +104,18 @@
             { "name": "HTML" },
             { "name": "TailwindCSS" },
             { "name": "Parcel" }
+        ],
+        "gallery": [
+            {
+                "type": "web",
+                "imageUrl": "/assets/img/gallery/bubo-1.png",
+                "description": "This landing page was made using a small set of tools, for keeping the project on the right technical complexity. It was made using parcel.js to be delivered in a simple way to production, without worrying about cache issues and so on."
+            },
+            {
+                "type": "mobile",
+                "imageUrl": "/assets/img/gallery/bubo-2.png",
+                "description": "It works to mobile users too. Because it’s 2021."
+            }
         ]
     }
 ]
